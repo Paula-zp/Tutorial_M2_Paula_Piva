@@ -53,4 +53,13 @@ CREATE TABLE IF NOT EXISTS "experiencia" (
 	FOREIGN KEY("usuario_id") REFERENCES "usuario"("id"),
 	PRIMARY KEY("id")
 );
+CREATE TABLE IF NOT EXISTS "realizacoes" (
+	"id"	INTEGER NOT NULL,
+	"usuario_id"	INTEGER NOT NULL,
+	"realizacao"	TEXT NOT NULL,
+	"ano_realizacao"	INTEGER NOT NULL,
+	"descricao"	TEXT NOT NULL,
+	FOREIGN KEY("usuario_id") REFERENCES "usuario"("id"),
+	PRIMARY KEY("id")
+);
 COMMIT;
