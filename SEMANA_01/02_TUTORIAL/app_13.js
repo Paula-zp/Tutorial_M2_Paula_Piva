@@ -5,13 +5,14 @@ var express = require('express'); // Recurso para Express - para instalar o Expr
 var hostname = '127.0.0.1';
 var port = 3013;
 
-// Cria o servidor
+// Cria o servidor55555
 var app = express();
 
-app.get('/', (req, res) => {
-	req.query.nome
+app.get('/:nome', (req, res) => {
+	console.log(req.params.nome)
+	req.params.nome
 	res.write("<h1> Etapa 1 - INSTALACAO - EndPoint GET</h1>")
-	res.end("<h2>Hello " + req.query.nome + " voce conseguiu um GET! bem sucedido</h2>");
+	res.end("<h2>Hello " + req.params.nome + " voce conseguiu um GET! bem sucedido</h2>");
 });
 
 // Inicia o servidor
