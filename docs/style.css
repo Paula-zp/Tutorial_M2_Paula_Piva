@@ -1,0 +1,30 @@
+body{
+    color: azure;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.Juntar{
+    border-radius: 15 px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    align-items: center;
+    padding: 16px;
+}
+a{
+    color: azure;
+    text-decoration: none;
+}
+img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%  ;
+    border: 5px solid purple;
+}
+.Center{
+    text-align: center;
+}
+.atividadestext{
+    list-style-type: none;
+}
