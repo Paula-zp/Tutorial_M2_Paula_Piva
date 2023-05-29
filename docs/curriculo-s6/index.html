@@ -7,13 +7,40 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <title>Curriculo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        var toggle = false
+        $(document).ready(() =>{
+            $("#trocarAvatar").click(() =>{
+                if(!toggle){
+                    $("#avatar").attr("src", "assets/avatar2.jpg")
+                    toggle = !toggle
+                }
+                else{
+                    $("#avatar").attr("src", "assets/avatar.jpeg")
+                    toggle = !toggle
+                }
+            });
+
+            $("#addHab").click(()=>{
+                var habilidade = $("#entradaHab").val();
+                if (habilidade !== ""){
+                    $(".habilidades ul").append($("<li></li>").text(habilidade));
+                    $("#entradaHab").val("");
+                }
+            })
+        });
+
+        
+    </script>
 </head>
 <body>
     <header>
-        <img src="assets/avatar.jpeg" alt="foto de perfil">
+        <img src="assets/avatar.jpeg" alt="foto de perfil" id="avatar">
         <div class="principal">
             <h1>Paula Zanella Piva</h1>
             <p>Estudante</p>
+            <button id="trocarAvatar">Trocar foto</button>
         </div>
     </header>
     <!--Seção com as duas colunas-->
@@ -100,6 +127,10 @@
                     <li>Habilidade 4</li>
                     <li>Habilidade 5</li>
                 </ul>
+                <div class="entrada">
+                    <input type="text" id="entradaHab">
+                    <button id="addHab">Adicionar</button>
+                </div>
             </div>
             <!--Div de Personalidade-->
             <div class="personalidade">
