@@ -5,7 +5,9 @@ const DBPATH = './data/curriculo_01.db';
 const hostname = '127.0.0.1';
 const port = 3000;
 const app = express();
+const urlencodedParser = bodyParser.urlencoded({extended: false})
 
+app.use(express.static("./frontend"));
 app.use(bodyParser.json());
 app.use(express.json());
 const db = new sqlite3.Database(DBPATH, (err) => {
@@ -29,6 +31,7 @@ app.post("/formacao/add", (req, res) =>{
         }
     })
 })
+
 //read formacao
 app.get("/formacao", (req, res) =>{
     const sql = "SELECT * FROM formacao"
@@ -96,6 +99,21 @@ app.get("/habilidades", (req, res) =>{
     })
 })
 
+//create habilidades
+app.post("/habilidades/add", urlencodedParser, (req, res) =>{
+    res.setHeader('Access-Control-Allow-Origin','*');
+    const sql = "INSERT INTO habilidades (usuario_id, habilidade, nivel) VALUES(1, ?, 5)"
+    const {habilidade} = req.body
+    db.run(sql, [habilidade], (error, rows) =>{
+        if(error){
+            throw error
+        }
+        else{
+            console.log(req.body);
+            res.status(200).send("Enviado!")
+        }
+    })
+})
 
 //read informacoes
 app.get("/informacoes", (req, res) =>{
